@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#fff8fb" />
   <title>Pipoca Recheada | Baldes feitos para dividir (ou não)</title>
-  <meta name="description" content="Pipoca recheada, cremosa e crocante em baldes irresistíveis. Escolha seu tamanho, seu sabor e monte seu pedido." />
+  <meta name="description" content="Pipoca recheada, cremosa e crocante em baldes irresistíveis. Escolha o tamanho ideal e monte seu pedido." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-visual{min-height:560px;display:flex;align-items:center;justify-content:center;padding:24px}.hero-header-shot{position:relative;z-index:3;width:min(100%,540px);max-height:720px;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(112,59,78,.22));animation:floatHeader 4.5s ease-in-out infinite}.hero-visual::before{content:"";position:absolute;width:min(38vw,520px);height:min(38vw,520px);border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.92) 0%,rgba(255,215,230,.68) 48%,rgba(255,255,255,0) 73%);filter:blur(8px)}.product-grid.two-products{grid-template-columns:repeat(2,minmax(0,1fr))}.product-media.real-photo{padding:0;overflow:hidden;min-height:420px;background:linear-gradient(180deg,#fff6f9 0%,#fff0d8 100%)}.product-photo{width:100%;height:100%;min-height:420px;display:block;object-fit:cover;object-position:center}@keyframes floatHeader{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}@media(max-width:980px){.product-grid.two-products{grid-template-columns:1fr}.hero-header-shot{width:min(100%,420px)}}
+  </style>
 </head>
 <body>
   <div class="page-glow page-glow-one" aria-hidden="true"></div>
   <div class="page-glow page-glow-two" aria-hidden="true"></div>
   <div class="dot-grid" aria-hidden="true"></div>
-  <div class="structural-grid" aria-hidden="true">
-    <span class="v v-one"></span><span class="v v-two"></span><span class="h h-one"></span><span class="h h-two"></span>
-  </div>
+  <div class="structural-grid" aria-hidden="true"><span class="v v-one"></span><span class="v v-two"></span><span class="h h-one"></span><span class="h h-two"></span></div>
 
   <header class="site-header">
     <nav class="nav-pill" aria-label="Navegação principal">
@@ -37,90 +38,34 @@
         <div class="hero-copy">
           <div class="eyebrow"><span class="eyebrow-dot"></span> CROCANTE + CREMOSA + FEITA PRA VICIAR</div>
           <h1>Pipoca por fora.<br /><span>Recheio sem juízo.</span></h1>
-          <p class="hero-description">Baldes generosos de pipoca crocante com recheios cremosos, coberturas e combinações que ficam absurdamente bonitas na mesa e perigosamente fáceis de acabar.</p>
+          <p class="hero-description">Baldes generosos de pipoca crocante com recheios cremosos e finalização caprichada.</p>
           <div class="hero-actions"><a class="button-primary" href="#sabores">Ver os baldes <span>→</span></a><a class="button-secondary" href="#como-funciona">Como pedir</a></div>
-          <div class="hero-proof"><div class="proof-avatars" aria-hidden="true"><span>🍿</span><span>🍓</span><span>🍫</span></div><div><strong>Feita para impressionar</strong><small>Festa, presente, filme ou vontade sem explicação.</small></div></div>
+          <div class="hero-proof"><div class="proof-avatars" aria-hidden="true"><span>🍿</span><span>🍓</span><span>🍫</span></div><div><strong>Dois tamanhos, zero enrolação</strong><small>Pequeno para matar a vontade e grande para impressionar.</small></div></div>
         </div>
-        <div class="hero-visual" aria-label="Ilustração de um balde de pipoca recheada">
-          <div class="floating-chip chip-one">+ crocante</div><div class="floating-chip chip-two">muito recheio</div><div class="floating-chip chip-three">feito na hora</div>
-          <div class="bucket-shadow"></div>
-          <div class="popcorn-cluster" aria-hidden="true"><span class="kernel k1"></span><span class="kernel k2"></span><span class="kernel k3"></span><span class="kernel k4"></span><span class="kernel k5"></span><span class="kernel k6"></span><span class="kernel k7"></span><span class="kernel k8"></span><span class="kernel k9"></span><span class="kernel k10"></span><span class="kernel k11"></span><span class="kernel k12"></span></div>
-          <div class="hero-bucket"><div class="bucket-rim"></div><div class="bucket-drip drip-one"></div><div class="bucket-drip drip-two"></div><div class="bucket-label"><span class="mini-label">PIPOCA</span><strong>recheada</strong><span class="tiny-stars">✦ ✦ ✦</span></div></div>
-          <div class="chocolate-ribbon ribbon-one" aria-hidden="true"></div><div class="chocolate-ribbon ribbon-two" aria-hidden="true"></div><span class="crumb crumb-one"></span><span class="crumb crumb-two"></span><span class="crumb crumb-three"></span>
-        </div>
-        <div class="hero-bottom-strip"><span>01 / SABORES MARCANTES</span><span>02 / BALDES GENEROSOS</span><span>03 / EXPERIÊNCIA DE PRESENTE</span></div>
+        <div class="hero-visual" aria-label="Imagem principal do balde de pipoca recheada"><img class="hero-header-shot" src="gptheader.png" alt="Balde de pipoca recheada" /></div>
+        <div class="hero-bottom-strip"><span>01 / 500 ML</span><span>02 / 1,5 KG</span><span>03 / PIPOCA RECHEADA</span></div>
       </div>
     </section>
 
     <section id="sabores" class="products section-shell">
-      <div class="section-heading">
-        <div><div class="eyebrow">ESCOLHA O TAMANHO</div><h2>Do mimo individual<br /><span>ao balde sem limites.</span></h2></div>
-        <p>Agora os dois tamanhos reais já aparecem com as imagens editoriais. A vitrine fica muito mais forte porque o produto finalmente faz o trabalho de vender a si mesmo, milagre raro da internet.</p>
-      </div>
-
-      <div class="product-grid">
+      <div class="section-heading"><div><div class="eyebrow">ESCOLHA O TAMANHO</div><h2>As duas opções reais<br /><span>do seu cardápio.</span></h2></div><p>Escolha entre o balde pequeno de 500 ml e o grande de 1,5 kg.</p></div>
+      <div class="product-grid two-products">
         <article class="product-card featured">
-          <div class="product-media flavor-pink" style="padding:0; overflow:hidden; min-height:420px;">
-            <span class="product-badge" style="z-index:2;">500 ML</span>
-            <img src="chatgptimage.png" alt="Balde de 500 ml de pipoca recheada" style="width:100%;height:100%;min-height:420px;display:block;object-fit:cover;object-position:center;" />
-          </div>
-          <div class="product-content">
-            <div class="product-topline"><span>01</span><span>500 ML · INDIVIDUAL</span></div>
-            <h3>Balde 500 ml</h3>
-            <p>Compacto, bonito e recheado. Perfeito para uma pessoa, presente pequeno ou aquela sobremesa que começa com “só um pouquinho”.</p>
-            <div class="product-footer"><span class="price">R$ --,--</span><button class="mini-button" data-product="Balde 500 ml">Quero esse</button></div>
-          </div>
+          <div class="product-media real-photo"><span class="product-badge">500 ML</span><img class="product-photo" src="chatgptimage.png" alt="Balde pequeno de 500 ml de pipoca recheada" /></div>
+          <div class="product-content"><div class="product-topline"><span>01</span><span>500 ML · PEQUENA</span></div><h3>Balde pequeno</h3><p>Ideal para uma pessoa, para presentear ou para aquela vontade que aparece do nada.</p><div class="product-footer"><span class="price">R$ 24,00</span><button class="mini-button" data-product="Balde pequeno · R$ 24,00">Quero esse</button></div></div>
         </article>
-
         <article class="product-card">
-          <div class="product-media flavor-caramel" style="padding:0; overflow:hidden; min-height:420px;">
-            <span class="product-badge" style="z-index:2;">1,5 KG</span>
-            <img src="chagptimage2.png" alt="Balde de 1,5 kg de pipoca recheada com chocolate" style="width:100%;height:100%;min-height:420px;display:block;object-fit:cover;object-position:center;" />
-          </div>
-          <div class="product-content">
-            <div class="product-topline"><span>02</span><span>1,5 KG · GIGANTE</span></div>
-            <h3>Balde 1,5 kg</h3>
-            <p>O balde grande para festas, encontros, presentes absurdamente generosos ou pessoas que não reconhecem o conceito de “porção”.</p>
-            <div class="product-footer"><span class="price">R$ --,--</span><button class="mini-button" data-product="Balde 1,5 kg">Quero esse</button></div>
-          </div>
+          <div class="product-media real-photo"><span class="product-badge subtle">1,5 KG</span><img class="product-photo" src="chagptimage2.png" alt="Balde grande de 1,5 kg de pipoca recheada" /></div>
+          <div class="product-content"><div class="product-topline"><span>02</span><span>1,5 KG · GRANDE</span></div><h3>Balde grande</h3><p>Feito para dividir, presentear com impacto ou simplesmente atacar sem dignidade alguma.</p><div class="product-footer"><span class="price">R$ 45,00</span><button class="mini-button" data-product="Balde grande · R$ 45,00">Quero esse</button></div></div>
         </article>
-
-        <article class="product-card">
-          <div class="product-media flavor-berry">
-            <span class="product-badge subtle">PRÓXIMO</span>
-            <div class="photo-placeholder"><div class="placeholder-bucket"><span></span><strong>foto</strong></div><p>Próximo tamanho ou sabor<br /><small>imagem editorial aqui</small></p></div>
-          </div>
-          <div class="product-content">
-            <div class="product-topline"><span>03</span><span>EM BREVE</span></div>
-            <h3>Outra opção</h3>
-            <p>Espaço reservado para um terceiro tamanho, edição especial ou sabor que mereça destaque próprio.</p>
-            <div class="product-footer"><span class="price">R$ --,--</span><button class="mini-button" data-product="Outra opção">Quero esse</button></div>
-          </div>
-        </article>
-
-        <article class="product-card product-card-create"><div class="create-inner"><div class="create-icon">+</div><div class="eyebrow">ESPAÇO PARA EXPANDIR</div><h3>Seu próximo produto entra aqui.</h3><p>Novos tamanhos, kits, sabores ou edições sazonais podem entrar sem precisar desmontar a vitrine inteira.</p><a href="#pedido">Adicionar nova opção <span>↗</span></a></div></article>
       </div>
     </section>
 
-    <section id="como-funciona" class="process section-shell">
-      <div class="process-panel">
-        <div class="process-header"><div class="eyebrow">SEM COMPLICAÇÃO</div><h2>Você escolhe.<br /><span>A gente capricha.</span></h2></div>
-        <div class="steps-grid">
-          <article class="step-card"><span class="step-number">01</span><div class="step-icon">◎</div><h3>Escolha o balde</h3><p>Defina o tamanho ideal para matar a vontade, dividir com alguém ou fingir que vai dividir.</p></article>
-          <article class="step-card"><span class="step-number">02</span><div class="step-icon">✦</div><h3>Escolha o recheio</h3><p>Selecione uma combinação pronta ou monte a sua com os sabores disponíveis.</p></article>
-          <article class="step-card"><span class="step-number">03</span><div class="step-icon">♡</div><h3>Receba bonito</h3><p>Finalização caprichada, embalagem fotogênica e aquela sensação de “eu merecia isso”.</p></article>
-        </div>
-      </div>
-    </section>
+    <section id="como-funciona" class="process section-shell"><div class="process-panel"><div class="process-header"><div class="eyebrow">SEM COMPLICAÇÃO</div><h2>Você escolhe.<br /><span>A gente capricha.</span></h2></div><div class="steps-grid"><article class="step-card"><span class="step-number">01</span><div class="step-icon">◎</div><h3>Escolha o tamanho</h3><p>500 ml ou 1,5 kg.</p></article><article class="step-card"><span class="step-number">02</span><div class="step-icon">✦</div><h3>Confirme o pedido</h3><p>Selecione a opção desejada.</p></article><article class="step-card"><span class="step-number">03</span><div class="step-icon">♡</div><h3>Receba bonito</h3><p>Finalização caprichada e embalagem fotogênica.</p></article></div></div></section>
 
-    <section id="sobre" class="why section-shell">
-      <div class="why-grid">
-        <div class="why-copy"><div class="eyebrow">POR QUE É DIFERENTE</div><h2>Não é só pipoca.<br /><span>É sobremesa com crunch.</span></h2><p>O visual foi pensado para vender textura antes mesmo da primeira mordida: creme, crocância, contraste e generosidade. Tudo com uma estética leve e presenteável.</p><div class="check-list"><div><span>✓</span><p><strong>Texturas em camadas</strong><small>Crocante + cremoso + cobertura.</small></p></div><div><span>✓</span><p><strong>Feita para presentear</strong><small>Uma opção bonita sem cara de lembrancinha genérica.</small></p></div><div><span>✓</span><p><strong>Cardápio flexível</strong><small>Fácil de trocar sabores, tamanhos e preços no site.</small></p></div></div></div>
-        <div class="why-visual"><div class="quote-card"><span class="quote-mark">“</span><p>Tem que parecer tão gostosa na tela que a pessoa já abra o WhatsApp com fome.</p><div><strong>Regra de ouro do projeto</strong><small>e, surpreendentemente, uma boa regra de vendas</small></div></div><div class="texture-card texture-one"><span>cremoso</span></div><div class="texture-card texture-two"><span>crocante</span></div></div>
-      </div>
-    </section>
+    <section id="sobre" class="why section-shell"><div class="why-grid"><div class="why-copy"><div class="eyebrow">POR QUE É DIFERENTE</div><h2>Não é só pipoca.<br /><span>É sobremesa com crunch.</span></h2><p>Creme, crocância, contraste e generosidade em dois tamanhos simples de escolher.</p><div class="check-list"><div><span>✓</span><p><strong>Duas opções claras</strong><small>500 ml ou 1,5 kg.</small></p></div><div><span>✓</span><p><strong>Fotos reais do produto</strong><small>A vitrine mostra exatamente o que importa.</small></p></div><div><span>✓</span><p><strong>Preço visível</strong><small>R$ 24,00 e R$ 45,00.</small></p></div></div></div><div class="why-visual"><div class="quote-card"><span class="quote-mark">“</span><p>Tem que parecer tão gostosa na tela que a pessoa já abra o WhatsApp com fome.</p><div><strong>Regra de ouro do projeto</strong><small>e uma regra surpreendentemente sensata</small></div></div><div class="texture-card texture-one"><span>cremoso</span></div><div class="texture-card texture-two"><span>crocante</span></div></div></div></section>
 
-    <section id="pedido" class="order section-shell"><div class="order-card"><div class="order-copy"><div class="eyebrow">PRONTA PARA VIRAR PEDIDO</div><h2>Escolha seu favorito.<br /><span>O resto é fome.</span></h2><p>Esse bloco já pode virar o seu CTA final para WhatsApp, iFood, formulário ou checkout quando você decidir como vai vender.</p></div><div class="order-box"><span class="order-label">SELEÇÃO ATUAL</span><strong id="selected-product">Nenhum balde selecionado</strong><p id="selected-helper">Escolha uma opção acima para testar a interação.</p><a class="button-primary disabled" id="order-button" href="#sabores" aria-disabled="true">Montar meu pedido <span>→</span></a></div></div></section>
+    <section id="pedido" class="order section-shell"><div class="order-card"><div class="order-copy"><div class="eyebrow">PRONTA PARA VIRAR PEDIDO</div><h2>Escolha seu favorito.<br /><span>O resto é fome.</span></h2><p>Selecione um dos dois tamanhos acima.</p></div><div class="order-box"><span class="order-label">SELEÇÃO ATUAL</span><strong id="selected-product">Nenhum balde selecionado</strong><p id="selected-helper">Escolha uma opção acima para testar a interação.</p><a class="button-primary disabled" id="order-button" href="#sabores" aria-disabled="true">Montar meu pedido <span>→</span></a></div></div></section>
   </main>
 
   <footer class="footer section-shell"><div class="footer-inner"><div class="brand footer-brand"><span class="brand-icon">P</span><span>PIPOCA<span class="brand-soft">.RECHEADA</span></span></div><p>Site experimental para uma marca absurdamente séria sobre rechear pipoca.</p><div class="footer-links"><a href="#inicio">Topo</a><a href="#sabores">Baldes</a><a href="#pedido">Pedido</a></div></div></footer>
