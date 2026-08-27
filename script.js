@@ -33,7 +33,6 @@ async function loadShippingLocation() {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 1800);
-
     const response = await fetch('https://ipwho.is/', {
       signal: controller.signal,
       cache: 'no-store'
@@ -41,7 +40,6 @@ async function loadShippingLocation() {
     clearTimeout(timeout);
 
     if (!response.ok) throw new Error('Falha ao consultar localização');
-
     const data = await response.json();
     if (!data.success || !data.city) throw new Error('Cidade indisponível');
 
@@ -60,92 +58,7 @@ shippingClose?.addEventListener('click', () => {
 
 loadShippingLocation();
 
-let selectedSize = '';
-let selectedPrice = '';
-let selectedPopcorn = '';
-
-const sizeButtons = document.querySelectorAll('[data-size]');
-const popcornButtons = document.querySelectorAll('[data-popcorn]');
-const filling1 = document.querySelector('#filling-1');
-const filling2 = document.querySelector('#filling-2');
-const summaryText = document.querySelector('#builder-summary-text');
-const builderOrder = document.querySelector('#builder-order');
-
-function updateBuilderSummary() {
-  const first = filling1?.value || '';
-  const second = filling2?.value || '';
-
-  const parts = [];
-  if (selectedSize) parts.push(`${selectedSize} (${selectedPrice})`);
-  if (selectedPopcorn) parts.push(`pipoca ${selectedPopcorn}`);
-  if (first || second) {
-    const fillings = [first, second].filter(Boolean).join(' + ');
-    if (fillings) parts.push(fillings);
-  }
-
-  if (summaryText) {
-    summaryText.textContent = parts.length
-      ? parts.join(' · ')
-      : 'Escolha o tamanho, a pipoca e os dois recheios.';
-  }
-
-  const isComplete = Boolean(selectedSize && selectedPopcorn && first && second);
-  if (builderOrder) {
-    builderOrder.classList.toggle('disabled', !isComplete);
-    if (isComplete) {
-      builderOrder.removeAttribute('aria-disabled');
-      builderOrder.setAttribute('href', '#monte');
-    } else {
-      builderOrder.setAttribute('aria-disabled', 'true');
-      builderOrder.setAttribute('href', '#monte');
-    }
-  }
-}
-
-sizeButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    selectedSize = button.dataset.size || '';
-    selectedPrice = button.dataset.price || '';
-
-    sizeButtons.forEach((item) => {
-      item.classList.remove('active');
-      item.textContent = 'Escolher';
-    });
-
-    button.classList.add('active');
-    button.textContent = 'Selecionado ✓';
-    updateBuilderSummary();
-
-    document.querySelector('#monte')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-
-popcornButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    selectedPopcorn = button.dataset.popcorn || '';
-    popcornButtons.forEach((item) => item.classList.remove('selected'));
-    button.classList.add('selected');
-    updateBuilderSummary();
-  });
-});
-
-filling1?.addEventListener('change', updateBuilderSummary);
-filling2?.addEventListener('change', updateBuilderSummary);
-
-builderOrder?.addEventListener('click', (event) => {
-  const first = filling1?.value || '';
-  const second = filling2?.value || '';
-  const isComplete = Boolean(selectedSize && selectedPopcorn && first && second);
-
-  if (!isComplete) {
-    event.preventDefault();
-    return;
-  }
-
-  builderOrder.textContent = 'Combinação pronta ✓';
-});
-
-const revealTargets = document.querySelectorAll('.section-heading, .product-card, .builder-head, .builder-step, .why-copy, .why-visual');
+const revealTargets = document.querySelectorAll('.section-heading, .product-card, .quiz-callout-card, .why-copy, .why-visual');
 revealTargets.forEach((item) => item.classList.add('reveal'));
 
 const observer = new IntersectionObserver((entries) => {
