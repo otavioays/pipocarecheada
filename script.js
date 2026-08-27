@@ -60,34 +60,92 @@ shippingClose?.addEventListener('click', () => {
 
 loadShippingLocation();
 
-const productButtons = document.querySelectorAll('[data-product]');
-const selectedProduct = document.querySelector('#selected-product');
-const selectedHelper = document.querySelector('#selected-helper');
-const orderButton = document.querySelector('#order-button');
+let selectedSize = '';
+let selectedPrice = '';
+let selectedPopcorn = '';
 
-productButtons.forEach((button) => {
+const sizeButtons = document.querySelectorAll('[data-size]');
+const popcornButtons = document.querySelectorAll('[data-popcorn]');
+const filling1 = document.querySelector('#filling-1');
+const filling2 = document.querySelector('#filling-2');
+const summaryText = document.querySelector('#builder-summary-text');
+const builderOrder = document.querySelector('#builder-order');
+
+function updateBuilderSummary() {
+  const first = filling1?.value || '';
+  const second = filling2?.value || '';
+
+  const parts = [];
+  if (selectedSize) parts.push(`${selectedSize} (${selectedPrice})`);
+  if (selectedPopcorn) parts.push(`pipoca ${selectedPopcorn}`);
+  if (first || second) {
+    const fillings = [first, second].filter(Boolean).join(' + ');
+    if (fillings) parts.push(fillings);
+  }
+
+  if (summaryText) {
+    summaryText.textContent = parts.length
+      ? parts.join(' · ')
+      : 'Escolha o tamanho, a pipoca e os dois recheios.';
+  }
+
+  const isComplete = Boolean(selectedSize && selectedPopcorn && first && second);
+  if (builderOrder) {
+    builderOrder.classList.toggle('disabled', !isComplete);
+    if (isComplete) {
+      builderOrder.removeAttribute('aria-disabled');
+      builderOrder.setAttribute('href', '#monte');
+    } else {
+      builderOrder.setAttribute('aria-disabled', 'true');
+      builderOrder.setAttribute('href', '#monte');
+    }
+  }
+}
+
+sizeButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    const product = button.dataset.product;
+    selectedSize = button.dataset.size || '';
+    selectedPrice = button.dataset.price || '';
 
-    productButtons.forEach((item) => {
+    sizeButtons.forEach((item) => {
       item.classList.remove('active');
-      item.textContent = 'Quero esse';
+      item.textContent = 'Escolher';
     });
 
     button.classList.add('active');
     button.textContent = 'Selecionado ✓';
+    updateBuilderSummary();
 
-    selectedProduct.textContent = product;
-    selectedHelper.textContent = 'Perfeito. Agora esse botão pode ser conectado ao seu WhatsApp, checkout ou formulário.';
-    orderButton.classList.remove('disabled');
-    orderButton.removeAttribute('aria-disabled');
-    orderButton.setAttribute('href', '#pedido');
-
-    document.querySelector('#pedido')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.querySelector('#monte')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
-const revealTargets = document.querySelectorAll('.section-heading, .product-card, .process-header, .step-card, .why-copy, .why-visual, .order-copy, .order-box');
+popcornButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    selectedPopcorn = button.dataset.popcorn || '';
+    popcornButtons.forEach((item) => item.classList.remove('selected'));
+    button.classList.add('selected');
+    updateBuilderSummary();
+  });
+});
+
+filling1?.addEventListener('change', updateBuilderSummary);
+filling2?.addEventListener('change', updateBuilderSummary);
+
+builderOrder?.addEventListener('click', (event) => {
+  const first = filling1?.value || '';
+  const second = filling2?.value || '';
+  const isComplete = Boolean(selectedSize && selectedPopcorn && first && second);
+
+  if (!isComplete) {
+    event.preventDefault();
+    return;
+  }
+
+  builderOrder.textContent = 'Combinação pronta ✓';
+});
+
+const revealTargets = document.querySelectorAll('.section-heading, .product-card, .builder-head, .builder-step, .why-copy, .why-visual');
 revealTargets.forEach((item) => item.classList.add('reveal'));
 
 const observer = new IntersectionObserver((entries) => {
