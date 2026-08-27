@@ -16,29 +16,49 @@ if (toggle && mobileMenu) {
   });
 }
 
-const visitorCity = document.querySelector('#visitor-city');
-const locationStatus = document.querySelector('#location-status');
+const shippingPopup = document.querySelector('#shipping-popup');
+const shippingPlace = document.querySelector('#shipping-place');
+const shippingNote = document.querySelector('#shipping-note');
+const shippingClose = document.querySelector('#shipping-close');
 
-async function loadVisitorCity() {
-  if (!visitorCity) return;
+function showShippingPopup() {
+  if (!shippingPopup) return;
+  requestAnimationFrame(() => shippingPopup.classList.add('is-visible'));
+}
+
+async function loadShippingLocation() {
+  showShippingPopup();
+  if (!shippingPlace) return;
 
   try {
-    const response = await fetch('https://ipwho.is/');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 1800);
+
+    const response = await fetch('https://ipwho.is/', {
+      signal: controller.signal,
+      cache: 'no-store'
+    });
+    clearTimeout(timeout);
+
     if (!response.ok) throw new Error('Falha ao consultar localização');
 
     const data = await response.json();
     if (!data.success || !data.city) throw new Error('Cidade indisponível');
 
     const region = data.region_code || data.region || '';
-    visitorCity.textContent = region ? `${data.city}, ${region}` : data.city;
-    if (locationStatus) locationStatus.textContent = '· localização aproximada pelo IP';
+    shippingPlace.textContent = region ? `${data.city}, ${region}` : data.city;
+    if (shippingNote) shippingNote.textContent = 'Oferta liberada para a sua localização aproximada.';
   } catch (error) {
-    visitorCity.textContent = 'sua região';
-    if (locationStatus) locationStatus.textContent = '· localização aproximada indisponível';
+    shippingPlace.textContent = 'SUA REGIÃO';
+    if (shippingNote) shippingNote.textContent = 'Oferta disponível na sua região.';
   }
 }
 
-loadVisitorCity();
+shippingClose?.addEventListener('click', () => {
+  shippingPopup?.classList.remove('is-visible');
+});
+
+loadShippingLocation();
 
 const productButtons = document.querySelectorAll('[data-product]');
 const selectedProduct = document.querySelector('#selected-product');
